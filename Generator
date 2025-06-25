@@ -8,20 +8,6 @@ print("=" * 60)
 print("You can generate a secure password with the specified length.")
 print("=" * 60)
 
-# Function to get user input with a prompt
-def ask_for_password_confrimation():
-    print("Would you like to generate a random password? (yes/no)")
-    print("=" * 60)
-    while True:
-        response = input ("Please enter 'yes' or 'no': ").strip().lower()
-        if response in ['yes', 'y']:
-            return True
-        elif response in ['no', 'n']:
-            print("Exiting the password generator. Goodbye!")
-            return False
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-
 def define_password_complexity():
     print("For security, your password should include:")
     print("=" * len("For security, your password should include:"))
@@ -37,6 +23,20 @@ def define_password_complexity():
     print("=" * len("The length of the password should be between 8 and 20 characters."))
     print("Let's generate a secure password!")
     print("=" * len("Let's generate a secure password!"))
+
+# Function to get user input with a prompt
+def ask_for_password_confrimation():
+    print("Would you like to generate a random password? (yes/no)")
+    print("=" * len("Would you like to generate a random password? (yes/no)"))
+    while True:
+        response = input ("Please enter 'yes' or 'no': ").strip().lower()
+        if response in ['yes', 'y']:
+            return True
+        elif response in ['no', 'n']:
+            print("Exiting the password generator. Goodbye!")
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
 
 # Function to generate a random password
 def generate_password(length):
@@ -54,7 +54,7 @@ def main():
                 if 8 <= length <= 20:
                     password = generate_password(length)
                     print("Your generated password is:", password)
-                    print("=" * len("Your generated password is:"))
+                    print("=" * len("Your generated password is: " + password))
                     print("Please remember to store your password securely.")
                     print("=" * len("Please remember to store your password securely."))
                     break
@@ -71,3 +71,6 @@ if __name__ == "__main__":
     print("Thank you for using the Random Password Generator!")
     print("=" * len("Thank you for using the Random Password Generator!"))
     input("Press Enter to exit...")
+
+    # Function to save the password to a file
+    # print("Saving the password to a file is not implemented in this version.")
