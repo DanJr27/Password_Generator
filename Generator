@@ -4,9 +4,9 @@
 import random
 
 print("Welcome to the Random Password Generator!")
-print("=" * 60)
+print("=" * len("Welcome to the Random Password Generator!"))
 print("You can generate a secure password with the specified length.")
-print("=" * 60)
+print("=" * len("You can generate a secure password with the specified length."))
 
 def define_password_complexity():
     print("For security, your password should include:")
@@ -74,3 +74,4 @@ if __name__ == "__main__":
 
     # Function to save the password to a file
     # print("Saving the password to a file is not implemented in this version.")
+
