@@ -1,0 +1,73 @@
+# MY FIRST PYTHON PROGRAM
+# THIS SCRIPT IS USED FOR RANDOM PASSWORD GENERATION
+
+import random
+
+print("Welcome to the Random Password Generator!")
+print("=" * 60)
+print("You can generate a secure password with the specified length.")
+print("=" * 60)
+
+# Function to get user input with a prompt
+def ask_for_password_confrimation():
+    print("Would you like to generate a random password? (yes/no)")
+    print("=" * 60)
+    while True:
+        response = input ("Please enter 'yes' or 'no': ").strip().lower()
+        if response in ['yes', 'y']:
+            return True
+        elif response in ['no', 'n']:
+            print("Exiting the password generator. Goodbye!")
+            return False
+        else:
+            print("Invalid input. Please enter 'yes' or 'no'.")
+
+def define_password_complexity():
+    print("For security, your password should include:")
+    print("=" * len("For security, your password should include:"))
+    print("- At least one uppercase letter")
+    print("=" * len("- At least one uppercase letter"))
+    print("- At least one lowercase letter")
+    print("=" * len("- At least one lowercase letter"))
+    print("- At least one digit")
+    print("=" * len("- At least one digit"))
+    print("- At least one special character (e.g., !@#$%^&*()_+)")
+    print("=" * len("- At least one special character (e.g., !@#$%^&*()_+)"))
+    print("The length of the password should be between 8 and 20 characters.")
+    print("=" * len("The length of the password should be between 8 and 20 characters."))
+    print("Let's generate a secure password!")
+    print("=" * len("Let's generate a secure password!"))
+
+# Function to generate a random password
+def generate_password(length):
+    characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+"
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+
+# Main function to run the password generator
+def main():
+    if ask_for_password_confrimation():
+        while True:
+            try:
+                length = int(input("Enter the desired password length (8-20): "))
+                print("=" * 60)
+                if 8 <= length <= 20:
+                    password = generate_password(length)
+                    print("Your generated password is:", password)
+                    print("=" * len("Your generated password is:"))
+                    print("Please remember to store your password securely.")
+                    print("=" * len("Please remember to store your password securely."))
+                    break
+                else:
+                    print("Your password length must be between 8 and 20 characters.")
+                    print("=" * len("Your password length must be between 8 and 20 characters."))
+            except ValueError:
+                    print("Invalid input. Please enter a number.")
+                    print("=" * len("Invalid input. Please enter a number."))
+
+if __name__ == "__main__":
+    define_password_complexity()
+    main()
+    print("Thank you for using the Random Password Generator!")
+    print("=" * len("Thank you for using the Random Password Generator!"))
+    input("Press Enter to exit...")
