@@ -44,6 +44,20 @@ def generate_password(length):
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
 
+# Function to save the generated password to a file
+def save_password_to_file(password):
+    print("Would you like to save the generated password to a file? (yes/no)")
+    print("=" * len("Would you like to save the generated password to a file? (yes/no)"))
+    response = input("Please enter 'yes' or 'no': ").strip().lower()
+    if response in ['yes', 'y']:
+        # Save to Desktop instead
+        file_path = r"C:\\Users\\danny\\OneDrive\\Desktop\\generated_password.txt"
+        with open("generated_password.txt", "w") as file:
+            file.write(password)
+        print("Password saved to 'generated_password.txt'.")
+    elif response in ['no', 'n']:
+        print("Password not saved. Please remember to store it securely.")
+
 # Main function to run the password generator
 def main():
     if ask_for_password_confrimation():
@@ -57,6 +71,7 @@ def main():
                     print("=" * len("Your generated password is: " + password))
                     print("Please remember to store your password securely.")
                     print("=" * len("Please remember to store your password securely."))
+                    save_password_to_file(password)
                     break
                 else:
                     print("Your password length must be between 8 and 20 characters.")
@@ -65,13 +80,13 @@ def main():
                     print("Invalid input. Please enter a number.")
                     print("=" * len("Invalid input. Please enter a number."))
 
-if __name__ == "__main__":
+
+
+# Function to run the password generator and exit the program
+if __name__ == "__main__":  
     define_password_complexity()
     main()
     print("Thank you for using the Random Password Generator!")
     print("=" * len("Thank you for using the Random Password Generator!"))
     input("Press Enter to exit...")
-
-    # Function to save the password to a file
-    # print("Saving the password to a file is not implemented in this version.")
 
